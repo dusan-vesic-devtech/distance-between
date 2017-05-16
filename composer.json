@@ -1,6 +1,6 @@
 {
   "name": "vesic/distance-between",
-  "description": "Simple function to return distance between two or pissibly one and more distances on the globe.",
+  "description": "Simple function to return distance between two or possibly one and more distances on the globe.",
   "type": "library",
   "require": {
     "phpunit/phpunit": "^6.1"

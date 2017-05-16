@@ -28,13 +28,11 @@ class Geocoding {
     		$dist+= M_PI;
     	}
     
-    	// Default is Earth equatorial radius in kilometers
     	return $dist = $dist * $radius;
     }
     
     public static function getDifference($locations = []) {
         $count = count($locations);
-        // if ($count == 0 || $count == 1) throw new Error('Not enough data');
         if ($count == 2) {
             $from = $locations[0];
             $to = $locations[1];
@@ -43,9 +41,6 @@ class Geocoding {
                 , $to->getLatitude(), $to->getLongitude());
             return $distance;
         }
-        // if (count($locations) == 0) throw new Exception('No data provided');
-        // if (count($locations) == 1) throw new Exception('At least the values required.')
-        
     }
     
 }

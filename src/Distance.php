@@ -7,7 +7,7 @@ use Vesic\DistanceBetween\Geocoding;
 class Distance {
     public $locations = [];
     
-    public function addPlaces($location) {
+    public function addPlace($location) {
         $loc = Geocoding::lookup($location);
         // var_dump($loc); die('->>');
         $this->locations[] = $loc;

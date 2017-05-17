@@ -6,15 +6,20 @@ use Vesic\DistanceBetween\Geocoding;
 
 class Distance {
     public $locations = [];
+    public $geo;
+    
+    public function __construct(Geocoding $geo) {
+        $this->geo = $geo;
+    }
     
     public function addPlace($location) {
-        $loc = Geocoding::lookup($location);
+        $loc = $this->geo->lookup($location);
         // var_dump($loc); die('->>');
         $this->locations[] = $loc;
     }
     
     public function getDifference() {
-        return Geocoding::getDifference($this->locations);
+        return $this->geo->getDifference($this->locations);
     }
     
     public function getLocations() {

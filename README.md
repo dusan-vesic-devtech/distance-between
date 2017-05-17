@@ -12,8 +12,9 @@ composer require vesic/distance-between
 require __DIR__ . '/vendor/autoload.php';
 
 use Vesic\DistanceBetween\Distance;
+use Vesic\DistanceBetween\Geocoding;
 
-$distance = new Distance;
+$distance = new Distance(new Geocoding);
 
 $distance->addPlace('place|address');
 $distance->addPlace('place|address');

@@ -24,7 +24,11 @@ class Geocoding extends AbstractGeocoding {
             $distance = $this->sphereDistance
                 ($from->getLatitude(), $from->getLongitude()
                 , $to->getLatitude(), $to->getLongitude());
-            return $distance;
+            return json_encode([
+                'from' => $from->getLongName(),
+                'to' => $to->getLongName(),
+                'distance' => $distance,
+            ]);
         }
     }
     

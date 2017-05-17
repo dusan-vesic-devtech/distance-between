@@ -30,6 +30,26 @@ class Geocoding extends AbstractGeocoding {
                 'distance' => $distance,
             ]);
         }
+        
+        // keep here compared results
+        $result = [];
+        if ($count > 2) {
+            // take one to compare to
+            $from = array_shift($locations);
+            // compare to rest
+            foreach ($locations as $location) {
+                $distance = $this->sphereDistance
+                    ($from->getLatitude(), $from->getLongitude()
+                    , $location->getLatitude(), $location->getLongitude());
+                // push to result
+                $result[] = json_encode([
+                    'from' => $from->getLongName(),
+                    'to' => $location->getLongName(),
+                    'distance' => $distance,
+                ]);
+            }
+        }
+        return $result;
     }
     
 }
